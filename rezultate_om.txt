@@ -1,0 +1,5 @@
+
+The Runner: 13.532332420349121 seconds
+The Runner: 22.71018958091736 seconds
+FLorin: 60.195290088653564 seconds
+
