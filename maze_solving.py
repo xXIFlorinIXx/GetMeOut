@@ -47,18 +47,15 @@ def unvisit_maze(maze: dict[tuple[int, int], classes.Cell]):
         maze[key].visited = False
         maze[key].exit_path = False
 
-#Alg euristic
-# Pun biscuiti pe unde am fost de fiecare data cand intru intr-o celula, in momentul in care ajung intr-o intersectie ma uit in ce directie sunt cei mai putin biscuiti si ma duc dupa ei,
-# Daca pe drum vad ca am o celula fara biscuiti ma duc in celula respetiva, reiau tot procesul pana ajung la final (Larisa)
 def rezolva_labirintul_cu_biscuiti(maze: dict[tuple[int, int], classes.Cell], surface: pygame.Surface):
     pass
 
 def mark_path_to_exit(start_x: int, start_y: int, final_x: int, final_y:int, path: dict, maze: dict[tuple[int, int], classes.Cell]):
 
-    start = (0, 0)
-    final = (settings.lines - 1, settings.rows -1)
-    final_y, final_x = final
-    start_y, start_x = start
+    # start = (0, 0)
+    # final = (settings.lines - 1, settings.rows -1)
+    # final_y, final_x = final
+    # start_y, start_x = start
 
     dy = [-1,1,0,0] #N, S, E, W
     dx = [0,0,1,-1]
@@ -358,6 +355,7 @@ def BFS(maze: dict[tuple[int, int], classes.Cell], surface: pygame.Surface, anim
             maze[(y,x)].draw(settings.rect, surface)
             coords.append((x,y))
 
+
     return -1
         
 #DFS
@@ -426,8 +424,7 @@ def DFS(maze: dict[tuple[int, int], classes.Cell], surface: pygame.Surface, anim
     return -1
 
 def A_star(maze: dict[tuple[int, int], classes.Cell], surface: pygame.Surface, animation: bool = False):
-
-    
+  
 
     def Manhattan_distance(x1: int, y1: int, x2: int, y2:int):
         return abs(x1 - x2) + abs(y1 - y2)
@@ -494,6 +491,8 @@ def A_star(maze: dict[tuple[int, int], classes.Cell], surface: pygame.Surface, a
         if animation:
             maze[(y,x)].draw(settings.rect, surface)
             coords.append((x,y))
+
+
 
     return -1
 

@@ -276,11 +276,13 @@ def main():
                     button_start_game.pressed = True
 
                     if button_start_game.pressed and algoritm == 'BFS' and dim:
-                        settings.screen.fill('black')
+                        screen.blit(meniu_empty)
                         unvisit_maze(settings.maze)
                         time_start = time.time()
                         BFS(settings.maze, settings.maze_surf, True)
                         time_end = time.time()
+                        draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
+                        pygame.image.save(screen,"BFS_screenshot.png")
                         
                         pc_rez.append((time_end - time_start, 'BFS'))
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
@@ -289,11 +291,13 @@ def main():
                         camera_group.draw_map()
 
                     if button_start_game.pressed and algoritm == 'DFS' and dim:
-                        settings.screen.fill('black')
+                        screen.blit(meniu_empty)
                         unvisit_maze(settings.maze)
                         time_start = time.time()
                         DFS(settings.maze, settings.maze_surf, True)
                         time_end = time.time()
+                        draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
+                        pygame.image.save(screen,"DFS_screenshot.png")
                         
                         pc_rez.append((time_end - time_start, 'DFS'))
 
@@ -303,11 +307,13 @@ def main():
                         camera_group.draw_map()
 
                     if button_start_game.pressed and algoritm == 'A*' and dim:
-                        settings.screen.fill('black')
+                        screen.blit(meniu_empty)
                         unvisit_maze(settings.maze)
                         time_start = time.time()
                         A_star(settings.maze, settings.maze_surf, True)
                         time_end = time.time()
+                        draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
+                        pygame.image.save(screen,"A_star_screenshot.png")
                         
                         pc_rez.append((time_end - time_start, 'A*'))
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
@@ -316,11 +322,13 @@ def main():
                         camera_group.draw_map()
 
                     if button_start_game.pressed and algoritm == 'Dijkstra' and dim:
-                        settings.screen.fill('black')
+                        screen.blit(meniu_empty)
                         unvisit_maze(settings.maze)
                         time_start = time.time()
                         dijkshtra(settings.maze, settings.maze_surf, True)
                         time_end = time.time()
+                        draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
+                        pygame.image.save(screen,"Dijkstra_screenshot.png")
                     
                         pc_rez.append((time_end - time_start, 'Dijkstra'))
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
@@ -526,7 +534,7 @@ def main():
             if pygame.mouse.get_just_pressed()[0]:
                 if button_inapoi.ispressed(pygame.mouse.get_pos()):
                     is_meniu_rezultate_pc = False
-                    is_meniu_pc = True
+                    is_meniu_start = True
 
             if len(pc_rez) >= 1:
                 rez, alg = pc_rez[0]
@@ -717,7 +725,6 @@ def main():
                     is_meniu_game = False
                     is_meniu_rezultate_om = True
 
-        # get_mouse_click()
         pygame.display.update() 
         settings.clock.tick(settings.ticks)
 

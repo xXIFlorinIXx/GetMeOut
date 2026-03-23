@@ -3,3 +3,6 @@ The Runner: 13.532332420349121 seconds
 The Runner: 22.71018958091736 seconds
 FLorin: 60.195290088653564 seconds
 
+
+Florin: 48.928179025650024 seconds
+Florin: 77.80701422691345 seconds
