@@ -76,7 +76,7 @@ def mark_path_to_exit(start_x: int, start_y: int, final_x: int, final_y:int, pat
 
         maze[(Ry,Rx)].exit_path = True
     
-    print('-----', cnt)
+    print('Number of cells in the solution: ', cnt)
 
 #1 Random mouse algorithm
 def Random_mouse(maze: dict[tuple[int, int], classes.Cell], surface: pygame.Surface, animation: bool = False):

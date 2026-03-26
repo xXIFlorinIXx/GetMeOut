@@ -284,6 +284,11 @@ def main():
                         draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
                         pygame.image.save(screen,"BFS_screenshot.png")
                         
+                        with open("info.txt", "a", encoding="utf-8") as f:
+                            f.write("\nBFS\n")
+                            f.write(f"{classes.info()}")
+                            f.write(f"Execution time: {time_end - time_start}")
+                        
                         pc_rez.append((time_end - time_start, 'BFS'))
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
                             f.write(f"\nBFS: {time_end - time_start} seconds")
@@ -299,6 +304,11 @@ def main():
                         draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
                         pygame.image.save(screen,"DFS_screenshot.png")
                         
+                        with open("info.txt", "a", encoding="utf-8") as f:
+                            f.write("\nDFS\n")
+                            f.write(f"{classes.info()}")
+                            f.write(f"Execution time: {time_end - time_start}")
+
                         pc_rez.append((time_end - time_start, 'DFS'))
 
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
@@ -314,6 +324,11 @@ def main():
                         time_end = time.time()
                         draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
                         pygame.image.save(screen,"A_star_screenshot.png")
+
+                        with open("info.txt", "a", encoding="utf-8") as f:
+                            f.write("\nA*\n")
+                            f.write(f"{classes.info()}")
+                            f.write(f"Execution time: {time_end - time_start}")
                         
                         pc_rez.append((time_end - time_start, 'A*'))
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
@@ -329,10 +344,16 @@ def main():
                         time_end = time.time()
                         draw_maze(settings.maze, settings.rect, settings.maze_surf, False)
                         pygame.image.save(screen,"Dijkstra_screenshot.png")
+
+                        with open("info.txt", "a", encoding="utf-8") as f:
+                            f.write("\nDijkstra\n")
+                            f.write(f"{classes.info()}")
+                            f.write(f"Execution time: {time_end - time_start}")
                     
                         pc_rez.append((time_end - time_start, 'Dijkstra'))
                         with open("rezultate_pc.txt", "a", encoding="utf-8") as f:
                             f.write(f"\nDijkstra: {time_end - time_start} seconds")
+                        
 
                         camera_group.draw_map()
 
@@ -566,7 +587,7 @@ def main():
                 button_3.image.blit(pygame.image.load('Menus/button_3.jpeg').convert_alpha())
                 button_3.image.blit(font_top, font_top_rect)
 
-            if len(pc_rez) > 4:
+            if len(pc_rez) >= 4:
                 rez, alg = pc_rez[3]
 
                 top: str = str(alg) + ': ' + str(rez)
@@ -587,7 +608,7 @@ def main():
                 button_5.image.blit(font_top, font_top_rect)
 
             
-            if len(pc_rez) > 6:
+            if len(pc_rez) >= 6:
                 rez, alg = pc_rez[5]
 
                 top: str = str(alg) + ': ' + str(rez)

@@ -24,7 +24,8 @@ themes = 'Classic'
 
 #1. Maine - Window
 sizes = pygame.display.list_modes()
-screen = pygame.display.set_mode(sizes[0])
+screen = pygame.display.set_mode((1920, 1080))
+print(sizes)
 # pygame.display.toggle_fullscreen()
 size = screen.get_size()
 screen_rect = screen.get_rect()

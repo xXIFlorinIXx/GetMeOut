@@ -216,6 +216,21 @@ def clear_maze():
         for x in range(settings.rows):
             settings.maze[(y,x)] = Cell(y,x, [True, True, True, True])
 
+def info():
+    n_wall = 0
+    nr_wall = 0
+    nr_cell = 0
+    nr_visited_cell = 0
+    for cell in settings.maze:
+        nr_cell += 1
+        if settings.maze[cell].visited:
+            nr_visited_cell += 1
+        for wall in settings.maze[cell].walls:
+            nr_wall += 1
+            if not wall:
+                n_wall += 1
+    return f"Lines X Rows: {settings.lines} X {settings.rows}\nTotal number of potential walls: {nr_wall}\nTotal number of broken walls: {n_wall // 2}\nTotal number of cells: {nr_cell}\nTotal number of visited cells: {nr_visited_cell}\nTotal number of unvisted cells: {nr_cell - nr_visited_cell}\n"
+
 class Button(pygame.sprite.Sprite):
 
     def __init__(self, x, y, image):

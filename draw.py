@@ -22,6 +22,7 @@ def draw_maze(maze: dict, rect: int, surface: pygame.Surface, game: bool = False
         
     for key in maze.keys():
         maze[key].draw(rect, surface, game)
+    
 
 def highlite_path(start_x: int, start_y: int, final_x: int, final_y:int , path: dict, surface: pygame.Surface):
 
